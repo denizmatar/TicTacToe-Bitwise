@@ -66,23 +66,6 @@ contract TicTacToe is ITicTacToe {
     uint8 playerXMoveCount = 0;
     uint8 playerOMoveCount = 0;
 
-    // event Select(address indexed player, uint8 column, uint8 row);
-    // event Winner(
-    //     address indexed player,
-    //     bytes2 tableX,
-    //     bytes2 tableO,
-    //     uint256 betAmount
-    // );
-    // event Loser(
-    //     address indexed player,
-    //     bytes2 tableX,
-    //     bytes2 tableO,
-    //     uint256 betAmount
-    // );
-    // event Tie(bytes2 tableX, bytes2 table0);
-    // event Overtime(address penaltyPlayer);
-    // event Restart();
-
     constructor(uint256 _gameDurationSeconds, uint256 _betAmount) {
         playerXTable = 0x0;
         playerXMoveCount = 0;
@@ -165,6 +148,7 @@ contract TicTacToe is ITicTacToe {
                 newPosition & playerXTable == bytes2(0x00),
                 "New move should be different than opponent's moves"
             );
+
             // Update player table
             playerOTable = playerOTable | newPosition;
 
@@ -236,12 +220,10 @@ contract TicTacToe is ITicTacToe {
                 emit Overtime(playerXAddress);
                 playerOAddress.transfer(betAmount * 2);
                 _restart();
-                // revert("PlayerX didn't play");
             } else if (moveCountDifference == 1) {
                 emit Overtime(playerOAddress);
                 playerXAddress.transfer(betAmount * 2);
                 _restart();
-                // revert("PlayerO didn't play");
             }
         } else {
             revert("Game is still in progress");

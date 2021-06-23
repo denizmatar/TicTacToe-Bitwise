@@ -15,11 +15,6 @@ interface ITicTacToe {
     function select(uint8 column, uint8 row) external payable;
 
     /**
-     * @dev what it does comes here
-     */
-    // function winner() internal view returns (bool);
-
-    /**
      * @dev Lets non-absent player to withdraw betAmount * 2 after block.timestamp exceeds game duration.
      */
     function withdraw() external;
