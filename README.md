@@ -70,6 +70,8 @@ Project is created with:
 To run this project, install it locally using yarn:
 
 ```
+$ git clone https://github.com/denizmatar/TicTacToe-Bitwise.git
+$ cd TicTacToe-Bitwise
 $ yarn build
 $ yarn test
 ```
