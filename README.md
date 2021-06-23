@@ -6,7 +6,8 @@
 * [Setup](#setup)
 
 ## General Info
-This project is a traditional Tic-Tac-Toe game that is written in Solidity. The logic of this project uses **bitwise operations** to do things such as:
+This project is a traditional Tic-Tac-Toe game that is written in Solidity. Deployer sets a game duration (seconds) and bet amount to initialize the contract. Winner gets (betAmount * 2). If one of the players doesn't make a move within game time, anyone can call the withdraw function to let the winner by default collect the prize. The logic of this project uses **bitwise operations** to do things such as:
+
 - Determine whether new move is different from previous ones
 - Determine whether new move is different from opponent's moves
 - Update player table
